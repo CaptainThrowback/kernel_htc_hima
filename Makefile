@@ -220,10 +220,6 @@ ifeq ($(ARCH),sh64)
        SRCARCH := sh
 endif
 
-ifeq ($(ARCH),arm64)
-       SRCARCH := arm64
-endif
-
 # Additional ARCH settings for tile
 ifeq ($(ARCH),tilepro)
        SRCARCH := tile
