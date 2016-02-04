@@ -4584,7 +4584,7 @@ err_enable_irq:
 #ifdef CONFIG_FB
 	fb_unregister_client(&rmi4_data->fb_notifier);
 #endif
-
+#ifndef CONFIG_TOUCHSCREEN_SYNAPTICS_DSX_SUPPORT_INCELL
 err_off_mode:
 	synaptics_rmi4_empty_fn_list(rmi4_data);
 	if (rmi4_data->temp_report_data != NULL)
@@ -4593,7 +4593,7 @@ err_off_mode:
 		kfree(rmi4_data->report_data);
 	input_unregister_device(rmi4_data->input_dev);
 	rmi4_data->input_dev = NULL;
-
+#endif
 #ifdef CONFIG_TOUCHSCREEN_SYNAPTICS_DSX_WAKEUP_GESTURE
 err_register_notifier:
 #endif
